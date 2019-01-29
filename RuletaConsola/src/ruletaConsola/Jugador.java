@@ -1,25 +1,49 @@
 package ruletaConsola;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Jugador {
-	private int ID;
-	private String nom;
-	private double totalCash;
-	public int getID() {
-		return ID;
+	
+	private String Name;
+	private float Dinero;
+	private List<Apuesta> Apuestas;
+	
+	Jugador(String name)
+	{
+		this.Name = name;
+		this.Apuestas = new ArrayList<Apuesta>();
 	}
-	public void setID(int iD) {
-		ID = iD;
+	
+	public void Apostar(Apuesta apuesta)
+	{
+		if (apuesta.getCantidad()<= this.Dinero)
+		{
+			this.Dinero -= apuesta.getCantidad();
+			this.Apuestas.add(apuesta);
+		}
+		else 
+		{
+			//Un mensaje de error supongo
+			System.out.println("No hay dinero suficiente");
+		}
+		
 	}
-	public String getNom() {
-		return nom;
+
+	public String getName() {
+		return Name;
 	}
-	public void setNom(String nom) {
-		this.nom = nom;
+
+	public void setName(String name) {
+		Name = name;
 	}
-	public double getTotalCash() {
-		return totalCash;
+
+	public float getDinero() {
+		return Dinero;
 	}
-	public void setTotalCash(double totalCash) {
-		this.totalCash = totalCash;
+
+	public void setDinero(float dinero) {
+		Dinero = dinero;
 	}
 }
+	
