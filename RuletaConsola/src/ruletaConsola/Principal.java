@@ -45,5 +45,18 @@ public class Principal {
 				tablero.AgregarJugador(jugador);
 			}
 		}
+	   
+		// Comienzan las apuestas.
+		/*
+		 * crear menu para elegir jugador y que haga su apuesta
+		 * mas un item extra que el cruiper o como se llame diga basta
+		 * tipo:
+		 * Menu de Apuestas
+		 * 1- Austin Powers
+		 * 2- Peperino Pomoro
+		 * 3- No mas apuestas
+		 * con un submenu para tipo de apuestas, etc.
+		 * 
+		 * */
 	}
 }
