@@ -4,14 +4,14 @@ import java.util.ArrayList;
 
 public class Tablero {
 
-	public ArrayList<Apuesta> Apuestas;
+	//public ArrayList<Apuesta> Apuestas;
 	public ArrayList<Jugador> Jugadores;
 
 	/// Contructor del tablero
 
 	public Tablero() {
 
-		ArrayList<Jugador> Jugadores = new ArrayList<>();
+		this.Jugadores = new ArrayList<Jugador>();
 
 	}
 
