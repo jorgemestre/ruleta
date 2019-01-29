@@ -1,6 +1,5 @@
 package ruletaConsola;
 
-<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +13,7 @@ public class Tablero {
 	
 	public Tablero ()
 	{
-		;
+
 		Jugadores = new ArrayList<Jugador> ();
 		
 	}
@@ -32,8 +31,4 @@ public class Tablero {
 		
 	}
 	
-=======
-public class Tablero {
->>>>>>> refs/remotes/origin/master
-
 }

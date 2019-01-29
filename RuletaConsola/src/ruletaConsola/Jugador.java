@@ -1,13 +1,12 @@
 package ruletaConsola;
 
-<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
 
 public class Jugador {
 	
-	public String Name;
-	public float Dinero;
+	private String Name;
+	private float Dinero;
 	private List<Apuesta> Apuestas;
 	
 	Jugador(String name)
@@ -30,30 +29,21 @@ public class Jugador {
 		}
 		
 	}
-	
 
-=======
-public class Jugador {
-	private int ID;
-	private String nom;
-	private double totalCash;
-	public int getID() {
-		return ID;
+	public String getName() {
+		return Name;
 	}
-	public void setID(int iD) {
-		ID = iD;
+
+	public void setName(String name) {
+		Name = name;
 	}
-	public String getNom() {
-		return nom;
+
+	public float getDinero() {
+		return Dinero;
 	}
-	public void setNom(String nom) {
-		this.nom = nom;
+
+	public void setDinero(float dinero) {
+		Dinero = dinero;
 	}
-	public double getTotalCash() {
-		return totalCash;
-	}
-	public void setTotalCash(double totalCash) {
-		this.totalCash = totalCash;
-	}
->>>>>>> refs/remotes/origin/master
 }
+	

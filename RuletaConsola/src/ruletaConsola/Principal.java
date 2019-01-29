@@ -24,7 +24,7 @@ public class Principal {
 			String name = scan.nextLine();
 			Jugador j = new Jugador(name);
 			tablero.AgregarJugador(j);
-			System.out.println("Bienvenido " + j.Name);
+			System.out.println("Bienvenido " + j.getName());
 		}
 		
 	}
