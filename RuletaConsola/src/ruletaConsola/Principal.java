@@ -19,21 +19,31 @@ public class Principal {
 			System.out.println("Nombre del jugador " + (i + 1));
 			String name = scan.nextLine();
 			Jugador j = new Jugador(name);
+			Jugador.aumentarID();
+			j.setID(Jugador.getContadorIDs());
 			jugadores.add(j);
-			System.out.println("Bienvenido " + j.getName());
+			System.out.println("Bienvenido " + j.getName() + "(ID: " + j.getID() + ")");
 		}
-		// fix: resource leak scanner never closed. si no lo hago yo...en esta casa no lo hace nadie.
-		scan.close(); 
+		scan.close();
 		return jugadores;
 
 	}
 
 	public static void main(String[] args) {
-		Boolean DrawMeLikeOneOfYourFrenchGirls = false; // los cheats! los cheats!
+		// los cheats! los cheats!
+		Boolean DrawMeLikeOneOfYourFrenchGirls = false;
+		// flag para presentar jugadores automaticamente
+		Boolean auto_menuJugadores = false;
+
 		Tablero tablero = new Tablero();
-		for (Jugador jugador : menuJugadores()) {
-			System.out.println(jugador.getName());
-			tablero.AgregarJugador(jugador);
+		if (auto_menuJugadores) {
+			// TODO
+		} else {
+			// presentar jugadores manualmente
+			for (Jugador jugador : menuJugadores()) {
+				System.out.println(jugador.getName());
+				tablero.AgregarJugador(jugador);
+			}
 		}
 	}
 }
