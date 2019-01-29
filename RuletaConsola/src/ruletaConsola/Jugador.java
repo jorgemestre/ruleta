@@ -11,8 +11,8 @@ public class Jugador {
 	
 	Jugador(String name)
 	{
-		Name = name;
-		Apuestas = new ArrayList<Apuesta>();
+		this.Name = name;
+		this.Apuestas = new ArrayList<Apuesta>();
 	}
 	
 	public void Apostar(Apuesta apuesta)

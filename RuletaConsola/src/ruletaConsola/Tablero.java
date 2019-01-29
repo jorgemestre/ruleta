@@ -1,34 +1,29 @@
 package ruletaConsola;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Tablero {
-	
-	public List<Apuesta> Apuestas;
-	public List<Jugador> Jugadores;
-	
-	///Contructor del tablero
-	
-	
-	public Tablero ()
-	{
 
-		Jugadores = new ArrayList<Jugador> ();
-		
+	public ArrayList<Apuesta> Apuestas;
+	public ArrayList<Jugador> Jugadores;
+
+	/// Contructor del tablero
+
+	public Tablero() {
+
+		ArrayList<Jugador> Jugadores = new ArrayList<>();
+
 	}
-	
-	public int GirarRuleta()
-	{
-		
-		return  (int)(Math.random() * 37 ); // aleatorio del 0 al 36
-		
+
+	public int GirarRuleta() {
+
+		return (int) (Math.random() * 37); // aleatorio del 0 al 36
+
 	}
-	
-	public void AgregarJugador(Jugador jugador)
-	{
+
+	public void AgregarJugador(Jugador jugador) {
 		Jugadores.add(jugador);
-		
+
 	}
-	
+
 }
