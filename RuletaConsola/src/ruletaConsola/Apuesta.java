@@ -1,7 +1,6 @@
 package ruletaConsola;
 
 public class Apuesta {
-	
 	private String Tipo;
 	private String Detalle;
 	private float Cantidad; 
@@ -45,4 +44,5 @@ public class Apuesta {
 	public void setCantidad(float cantidad) {
 		Cantidad = cantidad;
 	}
+
 }
