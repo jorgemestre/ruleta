@@ -17,9 +17,9 @@ public class Jugador {
 	
 	public void Apostar(Apuesta apuesta)
 	{
-		if (apuesta.Cantidad <= this.Dinero)
+		if (apuesta.getCantidad() <= this.Dinero)
 		{
-			this.Dinero -= apuesta.Cantidad;
+			this.Dinero -= apuesta.getCantidad();
 			this.Apuestas.add(apuesta);
 		}
 		else 

@@ -6,13 +6,22 @@ public class Apuesta {
 	private String Detalle;
 	private float Cantidad; 
 	
+	
+	
 	Apuesta (String tipo, String detalle, float cantidad)
 	{
-		Tipo = tipo; 
-		Detalle = detalle; 
-		Cantidad = cantidad; 
+		this.Tipo = tipo; 
+		this.Detalle = detalle; 
+		this.Cantidad = cantidad; 
 		
 	}
+	
+	
+	
+	
+	
+	
+	//Getters and settere
 	public String getTipo() {
 		return Tipo;
 	}
