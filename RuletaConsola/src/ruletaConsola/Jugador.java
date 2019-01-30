@@ -15,6 +15,8 @@ public class Jugador {
 	Jugador(String name) {
 		this.Name = name;
 		this.Apuestas = new ArrayList<Apuesta>();
+		aumentarID();
+		this.setID(Jugador.getContadorIDs());
 	}
 
 

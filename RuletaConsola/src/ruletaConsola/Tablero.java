@@ -25,5 +25,9 @@ public class Tablero {
 		Jugadores.add(jugador);
 
 	}
+	
+	public int getCantidadDeJugadores(){
+		return Jugadores.size();
+	}
 
 }
