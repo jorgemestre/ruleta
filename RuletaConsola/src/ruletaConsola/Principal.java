@@ -53,6 +53,7 @@ public class Principal {
 			//hacer funcionar primero el systema de apuestas y pago a ganadores. 
 			for(Jugador j : tablero.getJugadores())
 			{
+				System.out.println("Jugador " + j.getName() + " apeste (typo no casual");
 				Apuesta apuesta = Menus.menuApostar();
 				j.Apostar(apuesta);
 				
@@ -60,6 +61,7 @@ public class Principal {
 			
 			//EL NUMERO GANADOR!!!
 			int numeroGanador = tablero.GirarRuleta(); 
+			numeroGanador = 1; //FOR TESTING ONLY!! Siempre sale el UNO
 			//EL NUMERO GANADOR PERO VISTO DESDE ABAJO
 			
 			
@@ -76,7 +78,11 @@ public class Principal {
 							if (num == numeroGanador)
 							{
 								//Aqui se hacen todos los calculines para pagar las apuestas y esas cosa. 
-								System.out.println("Le hemos pegado a uno aqui"); 
+								float premio = a.getTipo().getGAnancia() * a.getCantidad(); 
+								j.setDinero(j.getDinero() + premio);
+								System.out.println("Le hemos pegado a uno aqui");
+								System.out.println(j.getName() + " tiene ahora " + j.getDinero() );
+								
 							}
 						}
 						
