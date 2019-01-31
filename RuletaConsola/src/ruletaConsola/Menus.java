@@ -1,6 +1,7 @@
 package ruletaConsola;
 
 import java.util.ArrayList;
+import java.io.*;
 import java.util.Scanner;
 
 public class Menus {
@@ -39,14 +40,25 @@ public class Menus {
 	
 	private static TipoApuesta menuElejirApuesta()
 	{
-		Scanner scan = new Scanner(System.in);
+		BufferedReader reader =  new BufferedReader(new InputStreamReader(System.in)); 
+		
+		//Scanner scan = new Scanner(System.in);
 		TipoApuesta tipoApuesta; 
 
 		System.out.println("1) Pleno");
 		System.out.println("2) Color");
 		System.out.println("3) Docena");
 		
-		int opcionElegida = scan.nextInt();
+		int opcionElegida = 0;
+		try {
+			opcionElegida = Integer.parseInt(reader.readLine());
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 		
@@ -73,7 +85,7 @@ public class Menus {
 				break; 
 			}	
 		}
-		scan.close();
+		//scan.close();
 		return tipoApuesta; 
 		
 	}
@@ -82,9 +94,18 @@ public class Menus {
 	{
 		TipoApuesta ta = menuElejirApuesta(); 
 		
-		Scanner sc = new Scanner(System.in);
+		
 		System.out.println("A que numeritos? (separados por coma \",\")");
-		String[] _detalle = sc.nextLine().split(","); 
+		java.io.BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		
+		String[] _detalle = null;  
+		try {
+			_detalle = in.readLine().split(",");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		int[] detalle = new int[_detalle.length]; 
 		
 		for (String s: _detalle)
@@ -94,7 +115,16 @@ public class Menus {
 		}
 		
 		System.out.println("Cuanto le metemos?");
-		float cantidad = sc.nextFloat();
+		float cantidad = 0;
+		try {
+			cantidad = Float.parseFloat(in.readLine());
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		return new Apuesta(ta, detalle, cantidad); 
 		
