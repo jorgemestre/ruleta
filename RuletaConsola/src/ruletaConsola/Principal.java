@@ -1,7 +1,7 @@
 
 package ruletaConsola;
 
-
+import java.util.ArrayList;
 
 public class Principal {
 
@@ -42,5 +42,51 @@ public class Principal {
 		 * Peperino Pomoro 3- No mas apuestas con un submenu para tipo de apuestas, etc.
 		 * 
 		 */
+		
+		
+		//do-while (true) por ahora, despues vemos como salimos del juego. 
+		//Este metodo podria estar en Tablero como Tablero.AbrirApuestas(), o algo asi
+		
+		do 
+		{
+			//Cada jugador hace una sola apuesta por ahora, la idea es 
+			//hacer funcionar primero el systema de apuestas y pago a ganadores. 
+			for(Jugador j : tablero.getJugadores())
+			{
+				Apuesta apuesta = Menus.menuApostar();
+				j.Apostar(apuesta);
+				
+			}
+			
+			//EL NUMERO GANADOR!!!
+			int numeroGanador = tablero.GirarRuleta(); 
+			//EL NUMERO GANADOR PERO VISTO DESDE ABAJO
+			
+			
+			////TODO: Verificar el numero con las apuestas ganadoras. 
+			for (Jugador j : tablero.getJugadores())
+			{
+				ArrayList<Apuesta> apuestas = j.getApuestas(); 
+				if (!apuestas.isEmpty())
+				{
+					for (Apuesta a : apuestas)
+					{
+						for (int num : a.getDetalle())
+						{
+							if (num == numeroGanador)
+							{
+								//Aqui se hacen todos los calculines para pagar las apuestas y esas cosa. 
+								System.out.println("Le hemos pegado a uno aqui"); 
+							}
+						}
+						
+					}
+					
+				}
+				
+			}
+			
+		}
+		while(true);
 	}
 }

@@ -5,15 +5,13 @@ package ruletaConsola;
 public class TipoApuesta {
 	
 	private String Nombre; 
-	private String Params;
 	private int Ganancia;
 	
 	
 	//contructor parametrizado
-	TipoApuesta(String nombre, String params)
+	TipoApuesta(String nombre)
 	{
 		this.Nombre = nombre; 
-		this.Params = params; 
 		setGanancia();
 	}
 
@@ -46,14 +44,6 @@ public class TipoApuesta {
 
 	public void setNombre(String nombre) {
 		Nombre = nombre;
-	}
-
-	public String getParams() {
-		return Params;
-	}
-
-	public void setParams(String params) {
-		this.Params = params;
 	}
 
 	public int getGAnancia() {

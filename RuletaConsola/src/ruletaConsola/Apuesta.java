@@ -1,13 +1,13 @@
 package ruletaConsola;
 
 public class Apuesta {
-	private String Tipo;
-	private String Detalle;
+	private TipoApuesta Tipo;
+	private int[] Detalle;
 	private float Cantidad; 
 	
 	
 	
-	Apuesta (String tipo, String detalle, float cantidad)
+	Apuesta (TipoApuesta tipo, int[] detalle, float cantidad)
 	{
 		this.Tipo = tipo; 
 		this.Detalle = detalle; 
@@ -15,25 +15,21 @@ public class Apuesta {
 		
 	}
 	
-	
-	
-	
-	
-	
+
 	//Getters and settere
-	public String getTipo() {
+	public TipoApuesta getTipo() {
 		return Tipo;
 	}
 
-	public void setTipo(String tipo) {
+	public void setTipo(TipoApuesta tipo) {
 		Tipo = tipo;
 	}
 
-	public String getDetalle() {
+	public int[] getDetalle() {
 		return Detalle;
 	}
 
-	public void setDetalle(String detalle) {
+	public void setDetalle(int[] detalle) {
 		Detalle = detalle;
 	}
 

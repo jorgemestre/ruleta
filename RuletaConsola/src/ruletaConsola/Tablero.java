@@ -5,9 +5,11 @@ import java.util.ArrayList;
 public class Tablero {
 
 	//public ArrayList<Apuesta> Apuestas;
-	public ArrayList<Jugador> Jugadores;
+	private ArrayList<Jugador> Jugadores;
 
 	/// Contructor del tablero
+
+
 
 	public Tablero() {
 
@@ -18,7 +20,6 @@ public class Tablero {
 	public int GirarRuleta() {
 
 		return (int) (Math.random() * 37); // aleatorio del 0 al 36
-
 	}
 
 	public void AgregarJugador(Jugador jugador) {
@@ -30,4 +31,7 @@ public class Tablero {
 		return Jugadores.size();
 	}
 
+	public ArrayList<Jugador> getJugadores() {
+		return Jugadores;
+	}
 }

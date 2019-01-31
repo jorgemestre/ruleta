@@ -5,11 +5,13 @@ import java.util.List;
 
 public class Jugador {
 	
+
+
 	private static int contadorIDs = 0;
 	private int ID;
 	private String Name;
 	private float Dinero;
-	private List<Apuesta> Apuestas;
+	private ArrayList<Apuesta> Apuestas;
 	
 	
 	Jugador(String name) {
@@ -31,7 +33,16 @@ public class Jugador {
 		}
 
 	}
+	
+	
+	//GETTERS Y SETTERS
+	public int getID() {
+		return ID;
+	}
 
+	public void setID(int iD) {
+		ID = iD;
+	}
 	public String getName() {
 		return Name;
 	}
@@ -56,12 +67,9 @@ public class Jugador {
 		contadorIDs = contadorIDs + 1;
 	}
 	
-	public int getID() {
-		return ID;
-	}
 
-	public void setID(int iD) {
-		ID = iD;
+	public ArrayList<Apuesta> getApuestas() {
+		return Apuestas;
 	}
 
 }
