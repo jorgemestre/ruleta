@@ -60,8 +60,9 @@ public class Principal {
 			}
 			
 			//EL NUMERO GANADOR!!!
-			int numeroGanador = tablero.GirarRuleta(); 
-			numeroGanador = 1; //FOR TESTING ONLY!! Siempre sale el UNO
+			//Casilla casilla = new Casilla(tablero.GirarRuleta()); 
+			
+			Casilla casilla = new Casilla(1);  //FOR TESTING ONLY!! Siempre sale el UNO
 			//EL NUMERO GANADOR PERO VISTO DESDE ABAJO
 			
 			
@@ -75,23 +76,18 @@ public class Principal {
 					{
 						for (int num : a.getDetalle())
 						{
-							if (num == numeroGanador)
+							if (num == casilla.getNumero())
 							{
 								//Aqui se hacen todos los calculines para pagar las apuestas y esas cosa. 
 								float premio = a.getTipo().getGAnancia() * a.getCantidad(); 
 								j.setDinero(j.getDinero() + premio);
 								System.out.println("Le hemos pegado a uno aqui");
 								System.out.println(j.getName() + " tiene ahora " + j.getDinero() );
-								
 							}
 						}
-						
 					}
-					
 				}
-				
 			}
-			
 		}
 		while(true);
 	}

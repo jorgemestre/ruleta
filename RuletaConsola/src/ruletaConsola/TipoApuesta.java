@@ -26,9 +26,9 @@ public class TipoApuesta {
 		{
 		case "pleno": this.Ganancia= 36; 
 			break;
-		case "color": this.Ganancia = 2; 
+		case "color": case "paridad": case "mayoria": this.Ganancia = 2; 
 			break;
-		case "docena": this.Ganancia = 3;
+		case "docena": case "columna": this.Ganancia = 3;
 			break;
 		default: this.Ganancia = 0 ; 
 		
