@@ -43,6 +43,11 @@ public class Jugador {
 	}
 	
 	
+	public void BorrarApuestas()
+	{
+		this.Apuestas.clear();
+	}
+	
 	//GETTERS Y SETTERS
 	public int getID() {
 		return ID;
@@ -79,5 +84,7 @@ public class Jugador {
 	public ArrayList<Apuesta> getApuestas() {
 		return Apuestas;
 	}
+	
+	
 
 }

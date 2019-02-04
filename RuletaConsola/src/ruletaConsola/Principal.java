@@ -16,7 +16,7 @@ public class Principal {
 		Tablero tablero = new Tablero();
 
 		if (auto_menuJugadores) {
-			int cantJugadores = Utiles.generarIntRandom(2, 5);
+			int cantJugadores = Utiles.generarIntRandom(2, 2);
 			System.out.println("[auto] van a Jugar " + cantJugadores + " jugadores:\n");
 			for (Jugador j : Utiles.generarJugadores(cantJugadores)) {
 				System.out.println("[auto] " + j.getName() + "(ID: " + j.getID() + ")");
@@ -53,10 +53,16 @@ public class Principal {
 			//hacer funcionar primero el systema de apuestas y pago a ganadores. 
 			for(Jugador j : tablero.getJugadores())
 			{
-				System.out.println("Jugador " + j.getName() + " apeste (typo no casual");
-				Apuesta apuesta = Menus.menuApostar();
-				j.Apostar(apuesta);
 				
+				while (Menus.menuOtraApuesta())
+				{
+					
+					System.out.println("Jugador " + j.getName() + " apeste (typo no casual");
+					Apuesta apuesta = Menus.menuApostar();
+					j.Apostar(apuesta);
+					
+				}
+								
 			}
 			
 			//EL NUMERO GANADOR!!!
@@ -81,12 +87,14 @@ public class Principal {
 								//Aqui se hacen todos los calculines para pagar las apuestas y esas cosa. 
 								float premio = a.getTipo().getGAnancia() * a.getCantidad(); 
 								j.setDinero(j.getDinero() + premio);
-								System.out.println("Le hemos pegado a uno aqui");
-								System.out.println(j.getName() + " tiene ahora " + j.getDinero() );
+								System.out.println("Hemos acertado " + a.getTipo().getNombre());
 							}
 						}
 					}
 				}
+				System.out.println(j.getName() + " tiene ahora " + j.getDinero() );
+				//limpia la lista de apuestas, ya esta listo para empezar a apostar de nuevo
+				j.BorrarApuestas();
 			}
 		}
 		while(true);

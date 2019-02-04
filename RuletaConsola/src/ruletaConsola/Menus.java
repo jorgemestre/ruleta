@@ -87,22 +87,42 @@ public class Menus {
 		int[] detalle = null;
 
 		switch (ta.getNombre()) {
-		case "pleno":
+		case "pleno": {
 			detalle = menuApuestaPleno();
-		case "docena":
-			detalle = menuApuestaDocena();
-		case "color":
-			detalle = menuApuestaColor();
-		case "paridad":
-			detalle = menuApuestaParidad();
-		case "mayoria":
-			detalle = menuApuestaMayoria();
-		case "columna":
-			detalle = menuApuestaColumna();
-		case "fila":
-			detalle = menuApuestaFila();
+			break;
 		}
-
+		case "docena":
+		{
+			detalle = menuApuestaDocena();
+			break;
+		}
+		case "color":
+		{
+			detalle = menuApuestaColor();
+			break;
+		}
+		case "paridad":
+		{
+			detalle = menuApuestaParidad();
+			break;
+		}
+		case "mayoria":
+		{
+			detalle = menuApuestaMayoria();
+			break; 
+		}
+		case "columna":
+		{
+			detalle = menuApuestaColumna();
+			break;
+		}
+		
+		case "fila":
+		{
+			detalle = menuApuestaFila();
+			break;
+		}
+		}
 		System.out.println("Cuanto le metemos?");
 		java.io.BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		float cantidad = 0;
@@ -299,6 +319,33 @@ public class Menus {
 		detalle[0] = Integer.parseInt(_detalle[0]);
 
 		return detalle;
+	}
+	
+	
+	//verdadero si quiere seguir apostando
+	//falso si no quiere
+	public static boolean menuOtraApuesta()
+	{
+		System.out.println("Desea realizar otra apuesta? (n para terminar)");
+		java.io.BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		
+		String respuesta = null;
+		try {
+			respuesta = in.readLine();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
+		if (respuesta.length() == 1 && respuesta.startsWith("n"))
+		{
+			return false; 
+		}
+		else 
+		{
+			return true;
+		}
+		
 	}
 
 }
