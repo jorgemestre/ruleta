@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Tablero {
 
 	//public ArrayList<Apuesta> Apuestas;
-	private ArrayList<Jugador> Jugadores;
+	private static ArrayList<Jugador> Jugadores;
 
 	/// Contructor del tablero
 

@@ -37,6 +37,42 @@ public class Menus {
 		return jugadores;
 
 	}
+	
+	public static int MostrarMenuGeneral(ArrayList<Jugador> jugadores) {
+		
+		/*
+		 * Menu general
+		 * 1- NomJugador 1
+		 * 2- NomJugador 2
+		 * 3- Salir
+		 * */
+		
+		System.out.println("Menu Principal de Apuestas. Selecciona jugador.");
+		System.out.println("---- --------- -- --------- ---------- --------");
+		int c = 0;
+		for(Jugador j : jugadores)
+		{
+			c++;
+			System.out.println(c + "- " + j.getName());
+		}
+		c++;
+		System.out.println("   -----\n" + c + "- Salir");
+		
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		int opcionElegida = 0; 
+		try {
+			opcionElegida = Integer.parseInt(reader.readLine());
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+				
+		return opcionElegida;
+		
+	}
 
 	private static TipoApuesta menuElejirApuesta() {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
