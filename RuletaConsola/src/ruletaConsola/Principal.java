@@ -11,18 +11,20 @@ public class Principal {
 		// cheats!
 
 		// flag para presentar jugadores automaticamente
+
+		// SE SUPONE QUE TODO ESTO SE VA EN UNA VERSION RELEASE
 		Boolean auto_menuJugadores = true;
 
 		Tablero tablero = new Tablero();
 
 		if (auto_menuJugadores) {
-			int cantJugadores = Utiles.generarIntRandom(2, 2);
+			int cantJugadores = Utiles.generarIntRandom(2, 2); /// LOCO! dos jugadores para testear esta mas que bien!
 			System.out.println("[auto] van a Jugar " + cantJugadores + " jugadores:\n");
 			for (Jugador j : Utiles.generarJugadores(cantJugadores)) {
 				System.out.println("[auto] " + j.getName() + " (ID: " + j.getID() + "). " + "Guita: " + j.getDinero());
 				tablero.AgregarJugador(j);
 			}
-
+/// HASTA AQUI Y LO QUE ESTA DENTRO DEL ELSE QUEDA EN EL RELEASE
 		} else {
 			// presentar jugadores manualmente
 			for (Jugador j : Menus.menuJugadores()) {
@@ -33,8 +35,15 @@ public class Principal {
 		}
 
 		// Comienzan las apuestas.
-		System.out.println("\nCROUPIER: mesa cerrada con " + tablero.getCantidadDeJugadores()
+		System.out.println("\nCROUPIER: mesa cerrada con " + tablero.getJugadores().size()
 				+ " participantes, que comiencen las apuestas!\n");
+
+		//Una vez definidos los jugadores entra un bucle infinito 
+		// 1) Hacer apuestas
+		// 2) tirar bolita
+		// 3) pagar a ganadores
+		// ... for ever and ever
+		do {
 
 		/*
 		 * crear menu para elegir jugador y que haga su apuesta mas un item extra que el
@@ -43,41 +52,22 @@ public class Principal {
 		 * etc.
 		 * 
 		 */
-<<<<<<< HEAD
-		
-		
-		//do-while (true) por ahora, despues vemos como salimos del juego. 
-		//Este metodo podria estar en Tablero como Tablero.AbrirApuestas(), o algo asi
-		
-		do 
-		{
-			//Cada jugador hace una sola apuesta por ahora, la idea es 
-			//hacer funcionar primero el systema de apuestas y pago a ganadores. 
-			for(Jugador j : tablero.getJugadores())
-			{
-				
-				while (Menus.menuOtraApuesta())
-				{
-					
-					System.out.println("Jugador " + j.getName() + " apeste (typo no casual");
-					Apuesta apuesta = Menus.menuApostar();
-					j.Apostar(apuesta);
-					
-				}
-								
-=======
 
 		// do-while (true) por ahora, despues vemos como salimos del juego.
 		// Este metodo podria estar en Tablero como Tablero.AbrirApuestas(), o algo asi
 
 		int MenuGeneral = 0;
-		while (MenuGeneral != (tablero.getCantidadDeJugadores() + 1)) {
+		
+		
+		while (MenuGeneral != (tablero.getJugadores().size() + 1)) {
 			MenuGeneral = Menus.MostrarMenuGeneral(tablero.getJugadores());
-			if (MenuGeneral <= (tablero.getCantidadDeJugadores())) {
+
+			if (MenuGeneral <= (tablero.getJugadores().size())) {
 				Jugador player = (tablero.getJugadores()).get(MenuGeneral - 1);
 				System.out.println("has elegido a " + player.getName() + ". Me parece bien.");
 				Apuesta apuesta = Menus.menuApostar();
 				player.Apostar(apuesta);
+
 			} else {
 				System.out.println("Salimos del menu general..el codigo de mas abajo...");
 				System.out.println(
@@ -86,16 +76,7 @@ public class Principal {
 
 		}
 
-		do {
-			// Cada jugador hace una sola apuesta por ahora, la idea es
-			// hacer funcionar primero el systema de apuestas y pago a ganadores.
-			for (Jugador j : tablero.getJugadores()) {
-				System.out.println("Jugador " + j.getName() + " apeste (typo no casual");
-				Apuesta apuesta = Menus.menuApostar();
-				j.Apostar(apuesta);
 
->>>>>>> branch 'master' of https://github.com/jorgemestre/ruleta.git
-			}
 
 			// EL NUMERO GANADOR!!!
 			// Casilla casilla = new Casilla(tablero.GirarRuleta());
@@ -106,26 +87,22 @@ public class Principal {
 			//// TODO: Verificar el numero con las apuestas ganadoras.
 			for (Jugador j : tablero.getJugadores()) {
 				ArrayList<Apuesta> apuestas = j.getApuestas();
+
 				if (!apuestas.isEmpty()) {
 					for (Apuesta a : apuestas) {
 						for (int num : a.getDetalle()) {
 							if (num == casilla.getNumero()) {
+								
 								// Aqui se hacen todos los calculines para pagar las apuestas y esas cosa.
 								float premio = a.getTipo().getGAnancia() * a.getCantidad();
 								j.setDinero(j.getDinero() + premio);
-<<<<<<< HEAD
-								System.out.println("Hemos acertado " + a.getTipo().getNombre());
-=======
+
 								System.out.println("Le hemos pegado a uno aqui");
 								System.out.println(j.getName() + " tiene ahora " + j.getDinero());
->>>>>>> branch 'master' of https://github.com/jorgemestre/ruleta.git
 							}
 						}
 					}
 				}
-				System.out.println(j.getName() + " tiene ahora " + j.getDinero() );
-				//limpia la lista de apuestas, ya esta listo para empezar a apostar de nuevo
-				j.BorrarApuestas();
 			}
 		} while (true);
 	}

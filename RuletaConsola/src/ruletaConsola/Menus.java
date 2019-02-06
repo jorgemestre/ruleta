@@ -38,6 +38,8 @@ public class Menus {
 
 	}
 	
+	
+	//Devuelve el jugador elegido o la ultima opcion "salir" 
 	public static int MostrarMenuGeneral(ArrayList<Jugador> jugadores) {
 		
 		/*
@@ -49,13 +51,12 @@ public class Menus {
 		
 		System.out.println("Menu Principal de Apuestas. Selecciona jugador.");
 		System.out.println("---- --------- -- --------- ---------- --------");
-		int c = 0;
+		int c = 1;
 		for(Jugador j : jugadores)
 		{
-			c++;
-			System.out.println(c + "- " + j.getName());
+			System.out.println(c++ + "- " + j.getName());
 		}
-		c++;
+		
 		System.out.println("   -----\n" + c + "- Salir");
 		
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
