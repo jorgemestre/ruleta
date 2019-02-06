@@ -17,7 +17,7 @@ public class Utiles {
 		String nomsS = "Austin Powers,Paolo Conte,Peperino Pomoro,Mazinger Z,Mr. Pinedo";
 		String[] noms = nomsS.split(",");
 		for (int i=0;i < cantJugadores;i++){
-			Jugador j = new Jugador(noms[i], 100);
+			Jugador j = new Jugador(noms[i], generarIntRandom(50, 2000));
 			res.add(j);	
 		}
 				
