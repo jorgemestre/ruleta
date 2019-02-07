@@ -40,5 +40,30 @@ public class Tablero {
 		return Jugadores;
 	}
 	
+	public void pagarApuestas(Casilla casilla)
+	{
+		for (Jugador j : this.Jugadores) {
+			ArrayList<Apuesta> apuestas = j.getApuestas();
+
+			if (!apuestas.isEmpty()) {
+				for (Apuesta a : apuestas) {
+					for (int num : a.getDetalle()) {
+						if (num == casilla.getNumero()) {
+							
+							// Aqui se hacen todos los calculines para pagar las apuestas y esas cosa.
+							float premio = a.getTipo().getGAnancia() * a.getCantidad();
+							j.setDinero(j.getDinero() + premio);
+
+							//
+							System.out.println("Le hemos pegado a uno aqui");
+							System.out.println(j.getName() + " tiene ahora " + j.getDinero());
+						}
+					}
+				}
+			}
+		}
+		
+	}
+	
 	
 }

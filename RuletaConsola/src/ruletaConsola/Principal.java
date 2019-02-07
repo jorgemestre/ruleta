@@ -54,35 +54,12 @@ public class Principal {
 			// EL NUMERO GANADOR PERO VISTO DESDE ABAJO
 
 			//// TODO: Verificar el numero con las apuestas ganadoras.
-			pagarApuestas(tablero, casilla);
+			tablero.pagarApuestas( casilla);
+			
+			
 		} while (true);
 	}
 
-	/**
-	 * @param tablero
-	 * @param casilla
-	 */
-	private static void pagarApuestas(Tablero tablero, Casilla casilla) {
-		for (Jugador j : tablero.getJugadores()) {
-			ArrayList<Apuesta> apuestas = j.getApuestas();
-
-			if (!apuestas.isEmpty()) {
-				for (Apuesta a : apuestas) {
-					for (int num : a.getDetalle()) {
-						if (num == casilla.getNumero()) {
-							
-							// Aqui se hacen todos los calculines para pagar las apuestas y esas cosa.
-							float premio = a.getTipo().getGAnancia() * a.getCantidad();
-							j.setDinero(j.getDinero() + premio);
-
-							System.out.println("Le hemos pegado a uno aqui");
-							System.out.println(j.getName() + " tiene ahora " + j.getDinero());
-						}
-					}
-				}
-			}
-		}
-	}
 
 	/**
 	 * @param tablero
