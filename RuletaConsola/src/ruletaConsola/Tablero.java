@@ -6,7 +6,7 @@ public class Tablero {
 
 	//public ArrayList<Apuesta> Apuestas;
 	// Le saque el static, creo que no tiene sentido, si lo tiene lo volvemos a poner
-	private static ArrayList<Jugador> Jugadores;
+	private  ArrayList<Jugador> Jugadores;
 
 	/// Contructor del tablero
 
@@ -39,4 +39,6 @@ public class Tablero {
 	public ArrayList<Jugador> getJugadores() {
 		return Jugadores;
 	}
+	
+	
 }
