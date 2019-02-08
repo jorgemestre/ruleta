@@ -1,6 +1,7 @@
 package ruletaConsola;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 
@@ -23,4 +24,9 @@ public class Utiles {
 				
 		return res;
 	}
+	public static boolean ArrayContains(final int[] array, final int key) {  
+	     Arrays.sort(array);  
+	     return Arrays.binarySearch(array, key) >= 0;  
+	}  
 }
+

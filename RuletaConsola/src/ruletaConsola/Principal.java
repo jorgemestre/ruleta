@@ -25,9 +25,9 @@ public class Principal {
 			Tablero.abrirApuestas(tablero);
 
 			// EL NUMERO GANADOR!!!
-			// Casilla casilla = new Casilla(tablero.GirarRuleta());
-
-			Casilla casilla = new Casilla(1); // FOR TESTING ONLY!! Siempre sale el UNO
+			Casilla casilla = new Casilla(Utiles.generarIntRandom(0, 36));
+			System.out.println("la bolita ha caido en la casilla: " + casilla.getNomColor() + " " + casilla.getNumero());
+			//Casilla casilla = new Casilla(1); // FOR TESTING ONLY!! Siempre sale el UNO
 
 			//// TODO: Verificar el numero con las apuestas ganadoras.
 			tablero.pagarApuestas(casilla);
