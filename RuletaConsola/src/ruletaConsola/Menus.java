@@ -37,30 +37,25 @@ public class Menus {
 		return jugadores;
 
 	}
-	
-	
-	//Devuelve el jugador elegido o la ultima opcion "salir" 
+
+	// Devuelve el jugador elegido o la ultima opcion "salir"
 	public static int MostrarMenuGeneral(ArrayList<Jugador> jugadores) {
-		
+
 		/*
-		 * Menu general
-		 * 1- NomJugador 1
-		 * 2- NomJugador 2
-		 * 3- Salir
-		 * */
-		
+		 * Menu general 1- NomJugador 1 2- NomJugador 2 3- Salir
+		 */
+
 		System.out.println("Menu Principal de Apuestas. Selecciona jugador.");
 		System.out.println("---- --------- -- --------- ---------- --------");
 		int c = 1;
-		for(Jugador j : jugadores)
-		{
+		for (Jugador j : jugadores) {
 			System.out.println(c++ + "- " + j.getName());
 		}
-		
+
 		System.out.println("   -----\n" + c + "- Salir");
-		
+
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		int opcionElegida = 0; 
+		int opcionElegida = 0;
 		try {
 			opcionElegida = Integer.parseInt(reader.readLine());
 		} catch (NumberFormatException e) {
@@ -70,9 +65,9 @@ public class Menus {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-				
+
 		return opcionElegida;
-		
+
 	}
 
 	private static TipoApuesta menuElejirApuesta() {
@@ -114,7 +109,6 @@ public class Menus {
 			break;
 		}
 		}
-		// scan.close();
 		return tipoApuesta;
 
 	}
@@ -128,34 +122,31 @@ public class Menus {
 			detalle = menuApuestaPleno();
 			break;
 		}
-		case "docena":
-		{
-			detalle = menuApuestaDocena();
-			break;
-		}
-		case "color":
-		{
+		case "color": {
 			detalle = menuApuestaColor();
 			break;
 		}
-		case "paridad":
-		{
+		case "docena": {
+			detalle = menuApuestaDocena();
+			break;
+		}
+        //NO implementado en TipoApuesta ni en menuElejirApuesta
+		case "paridad": {
 			detalle = menuApuestaParidad();
 			break;
 		}
-		case "mayoria":
-		{
+        //NO implementado en TipoApuesta ni en menuElejirApuesta	
+		case "mayoria": {
 			detalle = menuApuestaMayoria();
-			break; 
+			break;
 		}
-		case "columna":
-		{
+        //NO implementado en TipoApuesta ni en menuElejirApuesta	
+		case "columna": {
 			detalle = menuApuestaColumna();
 			break;
 		}
-		
-		case "fila":
-		{
+        //NO implementado en TipoApuesta ni en menuElejirApuesta
+		case "fila": {
 			detalle = menuApuestaFila();
 			break;
 		}
@@ -357,32 +348,27 @@ public class Menus {
 
 		return detalle;
 	}
-	
-	
-	//verdadero si quiere seguir apostando
-	//falso si no quiere
-	public static boolean menuOtraApuesta()
-	{
+
+	// verdadero si quiere seguir apostando
+	// falso si no quiere
+	public static boolean menuOtraApuesta() {
 		System.out.println("Desea realizar otra apuesta? (n para terminar)");
 		java.io.BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-		
+
 		String respuesta = null;
 		try {
 			respuesta = in.readLine();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
-		
-		if (respuesta.length() == 1 && respuesta.startsWith("n"))
-		{
-			return false; 
 		}
-		else 
-		{
+
+		if (respuesta.length() == 1 && respuesta.startsWith("n")) {
+			return false;
+		} else {
 			return true;
 		}
-		
+
 	}
 
 }
