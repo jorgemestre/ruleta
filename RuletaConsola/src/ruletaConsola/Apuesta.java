@@ -3,15 +3,17 @@ package ruletaConsola;
 public class Apuesta {
 	private TipoApuesta Tipo;
 	private int[] Detalle;
-	private float Cantidad; 
+	private float Cantidad;
+	private String Descripcion;
 	
 	
 	
-	Apuesta (TipoApuesta tipo, int[] detalle, float cantidad)
+	Apuesta (TipoApuesta tipo, int[] detalle, float cantidad, String descripcion)
 	{
 		this.Tipo = tipo; 
 		this.Detalle = detalle; 
 		this.Cantidad = cantidad; 
+		this.Descripcion = descripcion;
 		
 	}
 	
@@ -37,6 +39,11 @@ public class Apuesta {
 		return Cantidad;
 	}
 
+	public String getDescripcion() {
+		return Descripcion;
+	}
+
+	
 	public void setCantidad(float cantidad) {
 		Cantidad = cantidad;
 	}

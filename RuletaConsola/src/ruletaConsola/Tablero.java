@@ -66,6 +66,21 @@ public class Tablero {
 	/**
 	 * @param tablero
 	 */
+	
+	public static void mostrarApuestas(Tablero t)
+	{
+		for (Jugador j: t.Jugadores)
+		{
+			System.out.println("------------------------------------");
+			System.out.println(j.getName() +  ", sus apuestas:");
+			for (Apuesta a: j.getApuestas())
+			{
+				System.out.println("\t-> " + a.getCantidad() + " a " + a.getTipo().getNombre() + " (" + a.getDescripcion() + ")") ;
+
+			}
+		}
+	}
+	
 	public static void abrirApuestas(Tablero tablero) {
 		int MenuGeneral = 0;
 

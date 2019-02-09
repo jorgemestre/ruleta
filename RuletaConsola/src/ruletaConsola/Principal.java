@@ -22,9 +22,11 @@ public class Principal {
 
 		do {
 
+			//aqui empiezan y finalizan las rondas de apuestas
 			Tablero.abrirApuestas(tablero);
+			
+			Tablero.mostrarApuestas(tablero);
 
-			// EL NUMERO GANADOR!!!
 			Casilla casilla = new Casilla(Utiles.generarIntRandom(0, 36));
 			System.out.println("la bolita ha caido en la casilla: " + casilla.getNomColor() + " " + casilla.getNumero());
 			//Casilla casilla = new Casilla(1); // FOR TESTING ONLY!! Siempre sale el UNO
