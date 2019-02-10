@@ -73,7 +73,6 @@ public class Menus {
 	private static TipoApuesta menuElejirApuesta() {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-		// Scanner scan = new Scanner(System.in);
 		TipoApuesta tipoApuesta;
 
 		System.out.println("1) Pleno");
@@ -116,7 +115,7 @@ public class Menus {
 	public static Apuesta menuApostar() {
 		TipoApuesta ta = menuElejirApuesta();
 		int[] detalle = null;
-		String descripcion = ta.getNombre();
+		String descripcion = null;
 
 		switch (ta.getNombre()) {
 		case "pleno": {
@@ -124,21 +123,15 @@ public class Menus {
 			break;
 		}
 		case "color": {
-			System.out.println("A que color? (rojo/negro)");
-			java.io.BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-			String color = null;
-			try {
-				color = in.readLine();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			detalle = menuApuestaColor(color);
-			descripcion = color;
+			String colorElegido = menuApuestaColor();
+			detalle = Tablero.getSecciones(ta.getNombre(),colorElegido);
+			descripcion = colorElegido;
 			break;
 		}
 		case "docena": {
-			detalle = menuApuestaDocena();
+			String docenaElegida = menuApuestaDocena();
+			detalle = Tablero.getSecciones(ta.getNombre(), docenaElegida);
+			descripcion = docenaElegida;
 			break;
 		}
         //NO implementado en TipoApuesta ni en menuElejirApuesta
@@ -262,7 +255,7 @@ public class Menus {
 		switch (mayoria) {
 		case "menor":
 			return new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 };
-		case "impar":
+		case "mayor":
 			return new int[] { 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36 };
 		default:
 			return null;
@@ -293,41 +286,34 @@ public class Menus {
 
 	}
 
-	private static int[] menuApuestaDocena() {
+	private static String menuApuestaDocena() {
 		System.out.println("A que docena? (1/2/3)");
 		java.io.BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-
-		int docena = 0;
+		String opc = null;
 		try {
-			docena = Integer.parseInt(in.readLine());
+			opc = in.readLine();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		switch (docena) {
-		case 1:
-			return new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
-		case 2:
-			return new int[] { 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24 };
-		case 3:
-			return new int[] { 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36 };
-
-		default:
-			return null;
-		}
+		return opc;
 
 	}
 
-	private static int[] menuApuestaColor(String opc) {
-		switch (opc) {
-		case "rojo":
-			return new int[] { 1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36 };
-		case "negro":
-			return new int[] { 2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35 };
-		default:
-			return null;
+	private static String menuApuestaColor() {
+		System.out.println("A que color? (rojo/negro)");
+		java.io.BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		String opc = null;
+		try {
+			opc = in.readLine();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		return opc;
+		
+		
 	}
 
 	private static int[] menuApuestaPleno() {
