@@ -3,18 +3,13 @@ package ruletaConsola;
 import java.util.ArrayList;
 
 public class Jugador {
-	
-
 
 	private static int contadorIDs = 0;
 	private int ID;
 	private String Name;
 	private float Dinero;
 	private ArrayList<Apuesta> Apuestas;
-	
 
-	
-	
 	public Jugador(String name) {
 		this.Name = name;
 		this.Apuestas = new ArrayList<Apuesta>();
@@ -22,12 +17,11 @@ public class Jugador {
 		this.setID(Jugador.getContadorIDs());
 	}
 
-	Jugador (String name, float dinero)
-	{
-		
-		this(name); 
-		this.Dinero = dinero; 
-		
+	Jugador(String name, float dinero) {
+
+		this(name);
+		this.Dinero = dinero;
+
 	}
 
 	public void Apostar(Apuesta apuesta) {
@@ -41,14 +35,12 @@ public class Jugador {
 		}
 
 	}
-	
-	
-	public void BorrarApuestas()
-	{
+
+	public void BorrarApuestas() {
 		this.Apuestas.clear();
 	}
-	
-	//GETTERS Y SETTERS
+
+	// GETTERS Y SETTERS
 	public int getID() {
 		return ID;
 	}
@@ -56,6 +48,7 @@ public class Jugador {
 	public void setID(int iD) {
 		ID = iD;
 	}
+
 	public String getName() {
 		return Name;
 	}
@@ -71,7 +64,7 @@ public class Jugador {
 	public void setDinero(float dinero) {
 		Dinero = dinero;
 	}
-	
+
 	public static int getContadorIDs() {
 		return contadorIDs;
 	}
@@ -79,12 +72,9 @@ public class Jugador {
 	public static void aumentarID() {
 		contadorIDs++;
 	}
-	
 
 	public ArrayList<Apuesta> getApuestas() {
 		return Apuestas;
 	}
-	
-	
 
 }

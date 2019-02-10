@@ -128,16 +128,21 @@ public class Tablero {
 
 	public static int[] getSecciones(String tipo, String seccion) {
 		switch (tipo) {
-		case "par":
-			return new int[] { 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36 };
-		case "impar":
-			return new int[] { 1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35 };
+		case "parimpar": case "par": case "impar":
 
-		case "menor":
-			return new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 };
-		case "mayor":
-			return new int[] { 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36 };
-
+			switch (seccion) {
+			case "par":
+				return new int[] { 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36 };
+			case "impar":
+				return new int[] { 1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35 };
+			}
+		case "menormayor":
+			switch (seccion) {
+			case "menor":
+				return new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 };
+			case "mayor":
+				return new int[] { 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36 };
+			}
 		case "color":
 			switch (seccion) {
 			case "rojo":

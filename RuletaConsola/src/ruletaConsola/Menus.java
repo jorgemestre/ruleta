@@ -30,9 +30,6 @@ public class Menus {
 
 		}
 
-		// fix: resource leak scanner never closed. si no lo hago yo...en esta casa no
-		// lo hace nadie.
-
 		scan.close();
 		return jugadores;
 
@@ -116,45 +113,49 @@ public class Menus {
 		TipoApuesta ta = menuElejirApuesta();
 		int[] detalle = null;
 		String descripcion = null;
-
+		String pregunta = null;
 		switch (ta.getNombre()) {
 		case "pleno": {
 			detalle = menuApuestaPleno();
 			break;
 		}
 		case "color": {
-			String colorElegido = menuApuestaColor();
-			detalle = Tablero.getSecciones(ta.getNombre(),colorElegido);
-			descripcion = colorElegido;
+			pregunta = "A que color? (rojo/negro)";
 			break;
 		}
 		case "docena": {
-			String docenaElegida = menuApuestaDocena();
-			detalle = Tablero.getSecciones(ta.getNombre(), docenaElegida);
-			descripcion = docenaElegida;
+			pregunta = "A que docena? (1/2/3)";
 			break;
 		}
-        //NO implementado en TipoApuesta ni en menuElejirApuesta
+		// NO implementado en TipoApuesta ni en menuElejirApuesta
 		case "paridad": {
-			detalle = menuApuestaParidad();
+			pregunta = "par o impar?";
 			break;
 		}
-        //NO implementado en TipoApuesta ni en menuElejirApuesta	
+		// NO implementado en TipoApuesta ni en menuElejirApuesta
 		case "mayoria": {
 			detalle = menuApuestaMayoria();
 			break;
 		}
-        //NO implementado en TipoApuesta ni en menuElejirApuesta	
+		// NO implementado en TipoApuesta ni en menuElejirApuesta
 		case "columna": {
 			detalle = menuApuestaColumna();
 			break;
 		}
-        //NO implementado en TipoApuesta ni en menuElejirApuesta
+		// NO implementado en TipoApuesta ni en menuElejirApuesta
 		case "fila": {
 			detalle = menuApuestaFila();
 			break;
 		}
+
 		}
+		// pregunta "la pregunta" y devuelve un string con la respuesta
+		String respuesta = menuApuestaPreguntar(pregunta);
+		// obtiene las casillas Ej: "color" y "rojo" traerá un int[] con las casillas de
+		// color rojo
+		detalle = Tablero.getSecciones(ta.getNombre(), respuesta);
+		descripcion = respuesta;
+
 		System.out.println("Cuanto le metemos?");
 		java.io.BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		float cantidad = 0;
@@ -301,8 +302,8 @@ public class Menus {
 
 	}
 
-	private static String menuApuestaColor() {
-		System.out.println("A que color? (rojo/negro)");
+	private static String menuApuestaPreguntar(String pregunta) {
+		System.out.println(pregunta);
 		java.io.BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		String opc = null;
 		try {
@@ -311,9 +312,9 @@ public class Menus {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 		return opc;
-		
-		
+
 	}
 
 	private static int[] menuApuestaPleno() {
@@ -331,7 +332,7 @@ public class Menus {
 
 		int[] detalle = new int[1];
 		detalle[0] = Integer.parseInt(_detalle[0]);
-		
+
 		return detalle;
 	}
 
